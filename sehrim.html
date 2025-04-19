@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Şehrim</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="sehrim.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- mobildeki menu butonu -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Hakkımda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ozgecmis.html">Özgeçmiş</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/sehrim.html">Şehrim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/mirasimiz.html">Mirasımız</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ilgi-alanlarim.html">İlgi Alanlarım</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/iletisim.html">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login.html">Giriş Yap</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-4">
+      <header class="text-center mb-4">
+        <h1>Erzurum</h1>
+      </header>
+
+      <!-- Slider -->
+      <div id="sehirSlider" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="#medrese">
+              <img
+                src="https://www.kulturportali.gov.tr/contents/images/ERZURUM-%C3%87%C4%B0FTE%20M%C4%B0NAREL%C4%B0%20MEDRESE-G%C3%9CLCAN%20ACAR%20(5).jpg"
+                class="carousel-image"
+                alt="Çifte Minareli Medrese"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <div class="caption-overlay">
+                  <h5>Çifte Minareli Medrese</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="#palandoken">
+              <img
+                src="https://otelzade.b-cdn.net/wp-content/uploads/2023/02/kayak1.jpg"
+                class="carousel-image"
+                alt="Palandöken Kayak Merkezi"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <div class="caption-overlay">
+                  <h5>Palandöken Kayak Merkezi</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="#selale">
+              <img
+                src="https://www.kulturportali.gov.tr/contents/images/20161214100558449_ERZURUM%20UZUNDERE%20TORTUM%20SELALESI%20Fotograf%20Murat%20OCAL%200697.JPG"
+                class="carousel-image"
+                alt="Tortum Şelalesi"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <div class="caption-overlay">
+                  <h5>Tortum Şelalesi</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="#kale">
+              <img
+                src="http://www.erzurum.gov.tr/kurumlar/erzurum.gov.tr/Haberler/Erzurum-Fotograflari/Erzurum-Kalesi/DJI_0332_.jpg"
+                class="carousel-image"
+                alt="Erzurum Kalesi"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <div class="caption-overlay">
+                  <h5>Erzurum Kalesi</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#sehirSlider"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#sehirSlider"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <section class="mb-4">
+        <h2>Genel Bilgiler</h2>
+        <p>Nüfus: 762.021</p>
+        <p>Yüzölçümü: 25.066 km²</p>
+        <p>Rakım: 1.959 m</p>
+        <p>
+          Erzurum, Türkiye'nin Doğu Anadolu Bölgesi'nde yer alan köklü bir
+          şehirdir. Tarihi yapıları, doğası ve kış sporları ile ünlüdür. Aynı
+          zamanda Türkiye’nin önemli üniversitelerinden biri olan Atatürk
+          Üniversitesi’ne de ev sahipliği yapar.
+        </p>
+      </section>
+
+      <section class="row">
+        <h2 class="mb-4">Gezilecek Yerler</h2>
+
+        <article id="medrese" class="col-md-6 mb-4">
+          <h3>Çifte Minareli Medrese</h3>
+          <p>
+            13. yüzyılda Selçuklular döneminde yapılmıştır. İki yüksek
+            minaresiyle dikkat çeken bu tarihi yapı, Erzurum’un simgesi haline
+            gelmiştir. Taş işlemeleri ve detaylı mimarisiyle görenleri büyüler.
+            Günümüzde kültürel etkinlikler için de kullanılmaktadır.
+          </p>
+        </article>
+
+        <article id="palandoken" class="col-md-6 mb-4">
+          <h3>Palandöken Kayak Merkezi</h3>
+          <p>
+            Palandöken, Türkiye'nin en popüler kayak merkezlerinden biridir.
+            Erzurum şehir merkezine sadece 10 dakika uzaklıktadır. Kış aylarında
+            yerli ve yabancı turistler tarafından sıkça ziyaret edilir. Uzun
+            pistleri ve kaliteli kar yapısıyla profesyonel kayakçılara da ev
+            sahipliği yapar. Ayrıca gece kayağı imkanı da sunar.
+          </p>
+        </article>
+
+        <article id="selale" class="col-md-6 mb-4">
+          <h3>Tortum Şelalesi</h3>
+          <p>
+            Erzurum’un Uzundere ilçesinde yer alır ve Türkiye’nin en büyük
+            şelalelerinden biridir. Özellikle ilkbaharda su debisi artar ve
+            etkileyici bir manzara sunar. Etrafında yürüyüş yolları, seyir
+            terasları ve piknik alanları bulunur. Doğa severler için harika bir
+            kaçış noktasıdır.
+          </p>
+        </article>
+
+        <article id="kale" class="col-md-6 mb-4">
+          <h3>Erzurum Kalesi</h3>
+          <p>
+            Tarihi Roma dönemine kadar uzanan Erzurum Kalesi, şehir merkezinde
+            yer alır. Kaleye çıkarak Erzurum’u yukarıdan izlemek mümkündür.
+            İçinde Saat Kulesi gibi yapılar da bulunur. Hem tarihi hem
+            manzarasıyla mutlaka görülmesi gereken bir noktadır.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
