@@ -1,0 +1,16 @@
+.badge {
+    background-color: #000 !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    display: flex !important;
+    justify-content: space-between;
+}
+
+li > div {
+    margin: 0 10px;
+}
