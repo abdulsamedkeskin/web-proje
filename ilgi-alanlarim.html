@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İlgi Alanlarım</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="ilgi-alanlarim.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- mobildeki menu butonu -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Hakkımda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ozgecmis.html">Özgeçmiş</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sehrim.html">Şehrim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/mirasimiz.html">Mirasımız</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/ilgi-alanlarim.html"
+                >İlgi Alanlarım</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/iletisim.html">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login.html">Giriş Yap</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-4">
+      <header class="text-center mb-4">
+        <h1>Golden State Warriors</h1>
+      </header>
+
+      <!-- Loading Spinner -->
+      <div id="loading" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <!-- Maç Programı -->
+      <section id="schedule" class="mt-4 d-none">
+        <h2 class="mb-4">Maç Programı</h2>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Tarih</th>
+                <th>Saat</th>
+                <th colspan="3" class="karsilasma">Karşılaşma</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("https://nba-api-seven.vercel.app/?id=1610612744")
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("loading").classList.add("d-none");
+            document.getElementById("schedule").classList.remove("d-none");
+            displaySchedule(data);
+          })
+          .catch((error) => {
+            document.getElementById("loading").innerHTML =
+              "Veri yüklenirken bir hata oluştu.";
+          });
+      });
+
+      function displaySchedule(games) {
+        const scheduleBody = document.getElementById("scheduleBody");
+
+        games.forEach((game) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${game.date}</td>
+            <td>${game.time || "TBD"}</td>
+            <td class="text-end">
+              <img src="${game.results[0].logo}" alt="${
+            game.results[0].name
+          }" style="height: 30px">
+              ${game.results[0].name}
+              <strong>${game.results[0].score || " - "}</strong>
+            </td>
+            <td class="text-center">vs</td>
+            <td>
+              <strong>${game.results[1].score || " - "}</strong>
+              ${game.results[1].name}
+              <img src="${game.results[1].logo}" alt="${
+            game.results[1].name
+          }" style="height: 30px">
+            </td>
+          `;
+          scheduleBody.appendChild(row);
+        });
+      }
+    </script>
+  </body>
+</html>
