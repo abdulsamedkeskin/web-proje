@@ -59,28 +59,15 @@
         <h1>Golden State Warriors</h1>
       </header>
 
-      <!-- Loading Spinner -->
       <div id="loading" class="text-center">
         <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
 
-      <!-- Maç Programı -->
-      <section id="schedule" class="mt-4 d-none">
-        <h2 class="mb-4">Maç Programı</h2>
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Tarih</th>
-                <th>Saat</th>
-                <th colspan="3" class="karsilasma">Karşılaşma</th>
-              </tr>
-            </thead>
-            <tbody id="scheduleBody"></tbody>
-          </table>
-        </div>
+      <!-- Oyuncu Kadrosu -->
+      <section id="roster" class="mt-4 d-none">
+        <div class="row g-4" id="rosterContainer"></div>
       </section>
     </main>
 
@@ -92,44 +79,49 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        fetch("https://nba-api-seven.vercel.app/?id=1610612744")
-          .then((response) => response.json())
+        fetch("https://nba-api-seven.vercel.app/?team=warriors")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
           .then((data) => {
             document.getElementById("loading").classList.add("d-none");
-            document.getElementById("schedule").classList.remove("d-none");
-            displaySchedule(data);
+            document.getElementById("roster").classList.remove("d-none");
+            displayRoster(data);
           })
           .catch((error) => {
             document.getElementById("loading").innerHTML =
-              "Veri yüklenirken bir hata oluştu.";
+              "Veri yüklenirken bir hata oluştu: " + error.message;
           });
       });
 
-      function displaySchedule(games) {
-        const scheduleBody = document.getElementById("scheduleBody");
+      function displayRoster(players) {
+        const rosterContainer = document.getElementById("rosterContainer");
 
-        games.forEach((game) => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-            <td>${game.date}</td>
-            <td>${game.time || "TBD"}</td>
-            <td class="text-end">
-              <img src="${game.results[0].logo}" alt="${
-            game.results[0].name
-          }" style="height: 30px">
-              ${game.results[0].name}
-              <strong>${game.results[0].score || " - "}</strong>
-            </td>
-            <td class="text-center">vs</td>
-            <td>
-              <strong>${game.results[1].score || " - "}</strong>
-              ${game.results[1].name}
-              <img src="${game.results[1].logo}" alt="${
-            game.results[1].name
-          }" style="height: 30px">
-            </td>
+        players.forEach((player) => {
+          const col = document.createElement("div");
+          col.className = "col-lg-3 col-md-4 col-sm-6 mb-4";
+
+          const playerImage = player.img;
+          const playerNumber = player.number;
+          const playerName = player.name;
+          const playerPosition = player.position;
+
+          col.innerHTML = `
+            <div class="card h-100">
+              <img src="${playerImage}" class="card-img-top" alt="${playerName}">
+              <div class="card-body">
+                <h5 class="card-title">${playerName}</h5>
+                <p class="card-text">Pozisyon: ${playerPosition}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Numara: ${playerNumber}</small>
+              </div>
+            </div>
           `;
-          scheduleBody.appendChild(row);
+          rosterContainer.appendChild(col);
         });
       }
     </script>
